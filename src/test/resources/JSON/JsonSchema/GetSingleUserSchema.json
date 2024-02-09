@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "full_name": {
+          "type": "string"
+        },
+        "no_ktp": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "full_name",
+        "no_ktp",
+        "address",
+        "phone_number",
+        "email",
+        "image",
+        "role",
+        "status"
+      ]
+    }
+  },
+  "required": [
+    "message",
+    "data"
+  ]
+}
