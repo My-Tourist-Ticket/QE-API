@@ -11,12 +11,6 @@
         "full_name": {
           "type": "string"
         },
-        "no_ktp": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
         "phone_number": {
           "type": "string"
         },
@@ -35,8 +29,6 @@
       },
       "required": [
         "full_name",
-        "no_ktp",
-        "address",
         "phone_number",
         "email",
         "image",

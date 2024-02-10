@@ -19,7 +19,7 @@ public class UserStepDef {
     @Steps
     MyttUserAPI myttUserAPI;
 
-    @Given("Login users with valid {string}")
+    @Given("Login users with valid {string} as costumer")
     public void loginUsersWithValid(String json) {
         File jsonLoginUser = new File(Constants.REQ_BODY + json);
         myttUserAPI.postLoginUser(jsonLoginUser);
@@ -52,7 +52,7 @@ public class UserStepDef {
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
 
-    @Given("Get single user")
+    @Given("Get single user as costumer")
     public void getSingleUser() throws Exception {
         myttUserAPI.getSingleUsers();
     }
@@ -73,5 +73,29 @@ public class UserStepDef {
         SerenityRest.and()
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
+    }
+
+    @Given("Login users with valid {string} as pengelola")
+    public void loginUsersWithValidAsPengelola(String json) {
+        File jsonLoginUser = new File(Constants.REQ_BODY + json);
+        myttUserAPI.postLoginUser(jsonLoginUser);
+    }
+
+    @Given("Login users with empty email in {string}")
+    public void loginUsersWithEmptyEmailIn(String json) {
+        File jsonLoginUser = new File(Constants.REQ_BODY + json);
+        myttUserAPI.postLoginUser(jsonLoginUser);
+    }
+
+    @Given("Login users with empty password in {string}")
+    public void loginUsersWithEmptyPasswordIn(String json) {
+        File jsonLoginUser = new File(Constants.REQ_BODY + json);
+        myttUserAPI.postLoginUser(jsonLoginUser);
+    }
+
+    @Given("Login users with invalid credentials in {string}")
+    public void loginUsersWithInvalidCredentialsIn(String json) {
+        File jsonLoginUser = new File(Constants.REQ_BODY + json);
+        myttUserAPI.postLoginUser(jsonLoginUser);
     }
 }
