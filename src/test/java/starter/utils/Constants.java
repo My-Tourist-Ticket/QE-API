@@ -7,5 +7,6 @@ public class Constants {
     public static String REQ_BODY = JSON_DIR + "/ReqBody/";
     public static String JSON_SCHEMA = JSON_DIR + "/JsonSchema/";
     public static String REQ_BODY_DIR = DIR+"/src/test/resources/JSON/ReqBody/";
+    public static String TOKEN_CITY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MDc4NDEzMzcsInVzZXJJZCI6MTN9.I9khbEHP-ESPToZESiPiF7NI1wprFQNpkcJ8sRqbiZE";
     public static String IMAGE_DIR = DIR + "/src/test/resources/image";
 }

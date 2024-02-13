@@ -24,6 +24,7 @@ public class MyttUserAPI {
     public static String UPDATE_STATUS_PENGELOLA = Constants.BASE_URL + "/users/admin/{id}?status={status}";
     public static String DELETE_USER = Constants.BASE_URL + "/users";
 
+
     @Step("Post Login User")
     public void postLoginUser(File json){
         SerenityRest.given()
@@ -179,6 +180,8 @@ public class MyttUserAPI {
         SerenityRest.given()
                 .header("Authorization", "Bearer " + token);
     }
+
+
 
 
 
