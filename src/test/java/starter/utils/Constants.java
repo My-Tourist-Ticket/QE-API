@@ -7,4 +7,5 @@ public class Constants {
     public static String REQ_BODY = JSON_DIR + "/ReqBody/";
     public static String JSON_SCHEMA = JSON_DIR + "/JsonSchema/";
     public static String REQ_BODY_DIR = DIR+"/src/test/resources/JSON/ReqBody/";
+    public static String IMAGE_DIR = DIR + "/src/test/resources/image";
 }
