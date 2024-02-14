@@ -5,7 +5,7 @@ Feature: Endpoint Users
 #    Given Create users with valid data "<json>"
 #    When Send request create users
 #    Then Status code should be 200
-#    And Response body message was "success insert data"
+#    And Response body message was "success register data"
 #    And Validate login user json schema "RegisterSuccessSchema.json"
 #    Examples:
 #      | json               |
@@ -15,17 +15,27 @@ Feature: Endpoint Users
 #    Given Create users with valid data "<json>"
 #    When Send request create users
 #    Then Status code should be 200
-#    And Response body message was "success insert data"
+#    And Response body message was "success register data"
 #    And Validate login user json schema "RegisterSuccessSchema.json"
 #    Examples:
 #      | json                    |
 #      | CreateNewPengelola.json |
 
+#  Scenario Outline: Create users with valid data as admin
+#    Given Create users with valid data "<json>"
+#    When Send request create users
+#    Then Status code should be 200
+#    And Response body message was "success register data"
+#    And Validate login user json schema "RegisterSuccessSchema.json"
+#    Examples:
+#      | json                |
+#      | CreateNewAdmin.json |
+
   Scenario Outline: Create users with duplicate in phone number field
     Given Create users with duplicate in "<json>" field
     When Send request create users
     Then Status code should be 400
-    And Response body message was "error insert data. Error 1062 (23000): Duplicate entry '+6281987654321' for key 'users.phone_number'"
+    And Response body message was "error register data"
     And Validate login user json schema "RegisterFailedSchema.json"
     Examples:
       | json                           |
@@ -35,7 +45,7 @@ Feature: Endpoint Users
     Given Create users with duplicate in "<json>" field
     When Send request create users
     Then Status code should be 400
-    And Response body message was "error insert data. Error 1062 (23000): Duplicate entry 'rayhan12@gmail.com' for key 'users.email'"
+    And Response body message was "error register data"
     And Validate login user json schema "RegisterFailedSchema.json"
     Examples:
       | json                          |
@@ -45,7 +55,7 @@ Feature: Endpoint Users
     Given Create users with duplicate in "<json>" field
     When Send request create users
     Then Status code should be 400
-    And Response body message was "error insert data. Error 1062 (23000): Duplicate entry '123456789' for key 'users.no_ktp'"
+    And Response body message was "error register data"
     And Validate login user json schema "RegisterFailedSchema.json"
     Examples:
       | json                        |
@@ -53,7 +63,7 @@ Feature: Endpoint Users
 
   #LOGIN
   Scenario Outline: Login users with valid credentials as costumer
-    Given Login users with valid "<json>" as costumer
+    Given Login users with valid "<json>"
     When Send request login user
     Then Status code should be 200
     And Response body message was "success login" and role was "costumer"
@@ -63,7 +73,7 @@ Feature: Endpoint Users
       | LoginUser.json |
 
   Scenario Outline: Login users with valid credentials as pengelola
-    Given Login users with valid "<json>" as pengelola
+    Given Login users with valid "<json>"
     When Send request login user
     Then Status code should be 200
     And Response body message was "success login" and role was "pengelola"
@@ -72,11 +82,21 @@ Feature: Endpoint Users
       | json                |
       | LoginPengelola.json |
 
+  Scenario Outline: Login users with valid credentials as admin
+    Given Login users with valid "<json>"
+    When Send request login user
+    Then Status code should be 200
+    And Response body message was "success login" and role was "admin"
+    And Validate login user json schema "LoginUserSchema.json"
+    Examples:
+      | json        |
+      | LoginAdmin.json |
+
   Scenario Outline: Login users with invalid credentials
     Given Login users with invalid credentials in "<json>"
     When Send request login user
     Then Status code should be 401
-    And Response body message was "error login. record not found."
+    And Response body message was "error login"
     And Validate login user json schema "LoginInvalidSchema.json"
     Examples:
       | json                         |
@@ -153,7 +173,7 @@ Feature: Endpoint Users
     Given Update user with same email "<email>"
     When Send request update user
     Then Status code should be 400
-    And Response body message was "error update data. Error 1062 (23000): Duplicate entry 'rayhan12@gmail.com' for key 'users.email'"
+    And Response body message was "error update data."
     And Validate product json schema "FailedMessageSchema.json"
     Examples:
       | email              |
@@ -163,7 +183,7 @@ Feature: Endpoint Users
     Given Update user with same phone number "<phone_number>"
     When Send request update user
     Then Status code should be 400
-    And Response body message was "error update data. Error 1062 (23000): Duplicate entry '+6281987654321' for key 'users.phone_number'"
+    And Response body message was "error update data."
     And Validate product json schema "FailedMessageSchema.json"
     Examples:
       | phone_number   |
@@ -183,7 +203,7 @@ Feature: Endpoint Users
     Given Update status "<status>" pengelola with invalid <id>
     When Send request update status pengelola
     Then Status code should be 404
-    And Response body message was "error update data. error record not found "
+    And Response body message was "error update data."
     And Validate product json schema "FailedMessageSchema.json"
     Examples:
       | status   | id      |

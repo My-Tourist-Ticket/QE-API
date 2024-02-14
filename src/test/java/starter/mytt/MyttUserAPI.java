@@ -180,12 +180,4 @@ public class MyttUserAPI {
         SerenityRest.given()
                 .header("Authorization", "Bearer " + token);
     }
-
-
-
-
-
-
-
-
 }
