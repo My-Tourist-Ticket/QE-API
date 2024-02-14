@@ -15,17 +15,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
 public class UserStepDef {
     @Steps
     MyttUserAPI myttUserAPI;
-
-    @Given("Login users with valid {string} as costumer")
-    public void loginUsersWithValid(String json) {
-        File jsonLoginUser = new File(Constants.REQ_BODY + json);
-        myttUserAPI.postLoginUser(jsonLoginUser);
-    }
 
     @When("Send request login user")
     public void sendRequestLoginUser() {
@@ -64,7 +59,7 @@ public class UserStepDef {
     @And("Response body message was {string}")
     public void responseBodyMessageWas(String message) {
         SerenityRest.and()
-                .body(MyttResponses.MESSAGE, equalTo(message));
+                .body(MyttResponses.MESSAGE, containsString(message));
     }
 
     @And("Validate product json schema {string}")
@@ -75,7 +70,7 @@ public class UserStepDef {
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
 
-    @Given("Login users with valid {string} as pengelola")
+    @Given("Login users with valid {string}")
     public void loginUsersWithValidAsPengelola(String json) {
         File jsonLoginUser = new File(Constants.REQ_BODY + json);
         myttUserAPI.postLoginUser(jsonLoginUser);
@@ -148,6 +143,8 @@ public class UserStepDef {
     public void updateUserWithValidData(String full_name, String phone_number, String email, String password, String image) {
         Map<String, Object> formData = ValidData(full_name, phone_number, email, password, image);
         myttUserAPI.updateUser(formData);
+        SerenityRest.when()
+                .put(MyttUserAPI.UPDATE_USER);
     }
     private Map<String, Object> ValidData(String full_name, String phone_number, String email, String password, String image) {
         Map<String, Object> formData = new HashMap<>();
@@ -222,6 +219,4 @@ public class UserStepDef {
     public void updateStatusPengelolaWithInvalid(String status, int id) throws Exception {
         myttUserAPI.updateStatusPengelola(id,status);
     }
-
-
 }

@@ -1,0 +1,7 @@
+{
+  "name": "Diskon Hari Raya",
+  "code": "KTPT000",
+  "description": "Voucher senilai Rp.100.000",
+  "discount_value": 100000,
+  "expired_voucher": "2024-02-20"
+}
