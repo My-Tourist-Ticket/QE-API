@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "booking_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "tour_id": {
+          "type": "integer"
+        },
+        "package_id": {
+          "type": "integer"
+        },
+        "voucher_id": {
+          "type": "null"
+        },
+        "payment_type": {
+          "type": "string"
+        },
+        "gross_amount": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "va_number": {
+          "type": "string"
+        },
+        "bank": {
+          "type": "string"
+        },
+        "booking_date": {
+          "type": "string"
+        },
+        "phone_number": {
+          "type": "string"
+        },
+        "greeting": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "payment_expired": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "booking_id",
+        "user_id",
+        "tour_id",
+        "package_id",
+        "voucher_id",
+        "payment_type",
+        "gross_amount",
+        "status",
+        "va_number",
+        "bank",
+        "booking_date",
+        "phone_number",
+        "greeting",
+        "full_name",
+        "email",
+        "quantity",
+        "payment_expired",
+        "created_at"
+      ]
+    }
+  },
+  "required": [
+    "message",
+    "data"
+  ]
+}
