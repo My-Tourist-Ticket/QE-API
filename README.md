@@ -32,12 +32,12 @@ menyederhanakan pembuatan dan pelaksanaan tes otomatis serta mendapatkan laporan
 
 # HOW TO RUN PROJECT
 
-Berikut adalah langkah-langkah untuk menjalankan aplikasi ALTA-QE13-Team2-Gorest:
+Berikut adalah langkah-langkah untuk menjalankan aplikasi QE-API:
 
 1. Clone repositori ini ke dalam sistem lokal Anda dengan menggunakan perintah berikut:
 
     ```bash
-    https://github.com/Capstone-Project-My-Tourist-Ticket/QE-WEB.git
+    https://github.com/Capstone-Project-My-Tourist-Ticket/QE-API.git
     ```
 
 2. Pastikan Anda telah menginstal Java dan mengatur lingkungan (environment) Java dengan benar di sistem Anda.
